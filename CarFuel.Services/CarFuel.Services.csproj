@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2B03F3E9-4E66-41D2-9BBD-8B867BA6C903}</ProjectGuid>
+    <ProjectGuid>{8EBC59C3-CE62-4D05-9553-15A21DB7B674}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CarFuel.Models</RootNamespace>
-    <AssemblyName>CarFuel.Models</AssemblyName>
+    <RootNamespace>CarFuel.Services</RootNamespace>
+    <AssemblyName>CarFuel.Services</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -41,9 +46,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Car.cs" />
-    <Compile Include="FillUp.cs" />
+    <Compile Include="App.cs" />
+    <Compile Include="AppServiceBase.cs" />
+    <Compile Include="CarService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CarFuel.DataAccess\CarFuel.DataAccess.csproj">
+      <Project>{f0098cf1-ca80-4363-91a1-4232b45448e1}</Project>
+      <Name>CarFuel.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarFuel.Models\CarFuel.Models.csproj">
+      <Project>{2b03f3e9-4e66-41d2-9bbd-8b867ba6c903}</Project>
+      <Name>CarFuel.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GFX.Core\GFX.Core.csproj">
+      <Project>{004828ca-18ec-4867-856e-d67a3fbaa56b}</Project>
+      <Name>GFX.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
